@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PriorityQueueMinHeap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e45e1d4007bd60959436830e48bac353e6799b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ca212729f6fb4c99b2df26ccf1a3e827f103d1c")]
 [assembly: System.Reflection.AssemblyProductAttribute("PriorityQueueMinHeap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PriorityQueueMinHeap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

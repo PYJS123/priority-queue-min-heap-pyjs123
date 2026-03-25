@@ -1,0 +1,15 @@
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\bin\Debug\net10.0\PriorityQueueMinHeap.exe
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\bin\Debug\net10.0\PriorityQueueMinHeap.deps.json
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\bin\Debug\net10.0\PriorityQueueMinHeap.runtimeconfig.json
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\bin\Debug\net10.0\PriorityQueueMinHeap.dll
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\bin\Debug\net10.0\PriorityQueueMinHeap.pdb
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.GeneratedMSBuildEditorConfig.editorconfig
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.AssemblyInfoInputs.cache
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.AssemblyInfo.cs
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.csproj.CoreCompileInputs.cache
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.sourcelink.json
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.dll
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\refint\PriorityQueueMinHeap.dll
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.pdb
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\PriorityQueueMinHeap.genruntimeconfig.cache
+C:\Samuel\Code\CsharpProjects\PriorityQueueMinHeap\obj\Debug\net10.0\ref\PriorityQueueMinHeap.dll

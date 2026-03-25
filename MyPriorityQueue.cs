@@ -5,7 +5,7 @@ namespace PriorityQueueMinHeap;
 public class MyPriorityQueue<T>
 {
     (T item, int priority)[] _items; // this will be a min heap
-    int _heapSize = -1; // last index in use
+    int _heapEnd = -1; // last index in use
     int _length;
 
     public MyPriorityQueue(int maxLength)
@@ -15,16 +15,16 @@ public class MyPriorityQueue<T>
     }
 
     public int MaxLength { get => _length; }
-    public int Size { get => _heapSize + 1; }
+    public int Size { get => _heapEnd + 1; }
 
     public bool IsEmpty()
     {
-        return _heapSize == -1;
+        return _heapEnd == -1;
     }
 
     public bool IsFull()
     {
-        return _heapSize == _length - 1;
+        return _heapEnd == _length - 1;
     }
 
     static int LChild(int nodeIndex)
@@ -44,12 +44,12 @@ public class MyPriorityQueue<T>
 
     public void Enqueue(T item, int priority)
     {
-        if (IsFull()) throw new OutOfMemoryException("Priority queue is full");
+        if (IsFull()) throw new InvalidOperationException("Priority queue is full");
 
-        _heapSize++;
-        _items[_heapSize] = (item, priority);
+        _heapEnd++;
+        _items[_heapEnd] = (item, priority);
 
-        int currIndex = _heapSize;
+        int currIndex = _heapEnd;
         while (currIndex != 0 && _items[Parent(currIndex)].priority > priority)
         {
             (_items[Parent(currIndex)], _items[currIndex]) = (_items[currIndex], _items[Parent(currIndex)]);
@@ -61,56 +61,41 @@ public class MyPriorityQueue<T>
     {
         if (IsEmpty()) throw new InvalidOperationException("Priority queue is empty");
 
-        (_items[0], _items[_heapSize]) = (_items[_heapSize], _items[0]);
-        _heapSize--;
+        (_items[0], _items[_heapEnd]) = (_items[_heapEnd], _items[0]);
+        _heapEnd--;
 
         int currIndex = 0;
-        while (LChild(currIndex) <= _heapSize)
+        while (LChild(currIndex) <= _heapEnd)
         {
-            if (RChild(currIndex) <= _heapSize)
+            int LChildPriority = _items[LChild(currIndex)].priority;
+            int RChildPriority = RChild(currIndex) <= _heapEnd ? _items[RChild(currIndex)].priority : int.MaxValue;
+
+            if (LChildPriority <= RChildPriority && LChildPriority < _items[currIndex].priority)
             {
-                if (_items[currIndex].priority >= _items[LChild(currIndex)].priority && _items[currIndex].priority >= _items[RChild(currIndex)].priority)
-                {
-                    if (_items[LChild(currIndex)].priority <= _items[RChild(currIndex)].priority)
-                    {
-                        (_items[LChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[LChild(currIndex)]);
-                        currIndex = LChild(currIndex);
-                    }
-                    else
-                    {
-                        (_items[RChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[RChild(currIndex)]);
-                        currIndex = RChild(currIndex);
-                    }
-                }
-                else if (_items[currIndex].priority >= _items[LChild(currIndex)].priority)
-                {
-                    (_items[LChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[LChild(currIndex)]);
-                    currIndex = LChild(currIndex);
-                }
-                else if (_items[currIndex].priority >= _items[RChild(currIndex)].priority)
-                {
-                    (_items[RChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[RChild(currIndex)]);
-                    currIndex = RChild(currIndex);
-                }
-                else
-                {
-                    break;
-                }
+                SwapWithLeftChild(ref currIndex, _items);
+            }
+            else if (RChildPriority < LChildPriority && RChildPriority < _items[currIndex].priority)
+            {
+                SwapWithRightChild(ref currIndex, _items);
             }
             else
             {
-                if (_items[currIndex].priority >= _items[LChild(currIndex)].priority)
-                {
-                    (_items[LChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[LChild(currIndex)]);
-                    currIndex = LChild(currIndex);
-                }
-                else
-                {
-                    break;
-                }
+                break;
             }
         }
 
-        return _items[_heapSize + 1];
+        return _items[_heapEnd + 1];
+    }
+
+    static void SwapWithLeftChild(ref int index, (T, int)[] items)
+    {
+        (items[LChild(index)], items[index]) = (items[index], items[LChild(index)]);
+        index = LChild(index);
+    }
+
+    static void SwapWithRightChild(ref int index, (T, int)[] items)
+    {
+        (items[RChild(index)], items[index]) = (items[index], items[RChild(index)]);
+        index = RChild(index);
     }
 }
