@@ -64,7 +64,52 @@ public class MyPriorityQueue<T>
         (_items[0], _items[_heapSize]) = (_items[_heapSize], _items[0]);
         _heapSize--;
 
-        // heapify
+        int currIndex = 0;
+        while (LChild(currIndex) <= _heapSize)
+        {
+            if (RChild(currIndex) <= _heapSize)
+            {
+                if (_items[currIndex].priority >= _items[LChild(currIndex)].priority && _items[currIndex].priority >= _items[RChild(currIndex)].priority)
+                {
+                    if (_items[LChild(currIndex)].priority <= _items[RChild(currIndex)].priority)
+                    {
+                        (_items[LChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[LChild(currIndex)]);
+                        currIndex = LChild(currIndex);
+                    }
+                    else
+                    {
+                        (_items[RChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[RChild(currIndex)]);
+                        currIndex = RChild(currIndex);
+                    }
+                }
+                else if (_items[currIndex].priority >= _items[LChild(currIndex)].priority)
+                {
+                    (_items[LChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[LChild(currIndex)]);
+                    currIndex = LChild(currIndex);
+                }
+                else if (_items[currIndex].priority >= _items[RChild(currIndex)].priority)
+                {
+                    (_items[RChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[RChild(currIndex)]);
+                    currIndex = RChild(currIndex);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                if (_items[currIndex].priority >= _items[LChild(currIndex)].priority)
+                {
+                    (_items[LChild(currIndex)], _items[currIndex]) = (_items[currIndex], _items[LChild(currIndex)]);
+                    currIndex = LChild(currIndex);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
 
         return _items[_heapSize + 1];
     }
