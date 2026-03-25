@@ -6,22 +6,6 @@ class Program
     {
         MyPriorityQueue<string> pq = new(100);
 
-        // string[] sentence = "Samuel Abraham went to France to serve the king of Normandy by fighting in the Bronze Age using a Time Machine Built by “Sir Aren Ate A Wall” but it malfunctioned and killed Lineel".Split(' ');
-
-        Random r = new();
-        // int added = 0;
-        // while (added < sentence.Length)
-        // {
-        //     int index = r.Next(0, sentence.Length);
-        //     if (sentence[index] != "")
-        //     {
-        //         pq.Enqueue(sentence[index], index);
-        //         Console.WriteLine($"Added: {sentence[index]} ({index})");
-        //         sentence[index] = "";
-        //         added++;
-        //     }
-        // }
-
         for (int i = 0; i < pq.MaxLength; i++)
         {
             (string, int) toBeAdded = (Convert.ToString(DateTime.Now.Nanosecond.GetHashCode()), r.Next(1, 21));
