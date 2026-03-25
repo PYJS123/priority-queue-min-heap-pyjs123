@@ -6,6 +6,8 @@ class Program
     {
         MyPriorityQueue<string> pq = new(100);
 
+        Random r = new();
+
         for (int i = 0; i < pq.MaxLength; i++)
         {
             (string, int) toBeAdded = (Convert.ToString(DateTime.Now.Nanosecond.GetHashCode()), r.Next(1, 21));
